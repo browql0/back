@@ -16,14 +16,19 @@ const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY;
 if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY) {
   console.warn("⚠️ VAPID keys non définies !");
 } else {
-  webpush.setVapidDetails('alihajjaj930@gmail.com', VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
-}
-
 webpush.setVapidDetails(
-  'mailto:admin@tonsite.com',
+  'mailto:alihajjaj930@gmail.com', // <-- ajoute le "mailto:"
   VAPID_PUBLIC_KEY,
   VAPID_PRIVATE_KEY
 );
+}
+
+webpush.setVapidDetails(
+  'mailto:alihajjaj930@gmail.com', // <-- ajoute le "mailto:"
+  VAPID_PUBLIC_KEY,
+  VAPID_PRIVATE_KEY
+);
+
 
 const subscriptions = [];
 
