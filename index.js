@@ -24,12 +24,12 @@ app.use(bodyParser.json());
 
 // --- Configuration Supabase ---
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-if (!supabaseUrl || !supabaseServiceKey) {
-  console.error("🛑 Erreur: Les variables d'environnement SUPABASE_URL et SUPABASE_SERVICE_KEY sont requises.");
+const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_ANON_KEY;
+if (!supabaseUrl || !supabaseKey) {
+  console.error("🛑 Erreur: Les variables d'environnement SUPABASE_URL et SUPABASE_SERVICE_KEY (ou SUPABASE_ANON_KEY) sont requises.");
   process.exit(1);
 }
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 // --- Configuration VAPID pour Web Push ---
 const VAPID_PUBLIC_KEY = process.env.VAPID_PUBLIC_KEY;
