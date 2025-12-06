@@ -23,8 +23,8 @@ app.use(cors({
 app.use(bodyParser.json());
 
 // --- Configuration Supabase ---
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.VITE_SUPABASE_URL;
+const supabaseKey =  process.env.VITE_SUPABASE_ANON_KEY;
 if (!supabaseUrl || !supabaseKey) {
   console.error("🛑 Erreur: Les variables d'environnement SUPABASE_URL et SUPABASE_SERVICE_KEY (ou SUPABASE_ANON_KEY) sont requises.");
   process.exit(1);
